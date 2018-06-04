@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    background-color: yellowgreen;
+}
+
+.wrapper {
+    background-image: url('../testimages/BACKGROUND3.jpg');
+    background-size: cover;
+    margin: auto;
+    width: 1600px;
+    height: 800px;
+    position: relative;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    border: 1px solid black;
+}
