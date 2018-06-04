@@ -1,6 +1,7 @@
 import {animationHeroAttack} from './animations';
 import {animationHeroWalk} from './animations';
 import {animationEnemyWalk} from './animations';
+import {animationEnemyAttack} from './animations';
 import {Hero} from './classes/Hero';
 import {Enemy} from './classes/Enemy';
 import {SpriteHeroContainer} from './classes/SpriteHeroContainer';
@@ -15,9 +16,12 @@ resources.load(headsEnemySrc.concat(bodiesEnemySrc).concat(armsLeftEnemySrc).con
 resources.onReady(
     () => {
         const gnom = new Hero('Fred');
-        const view1 = new SpriteHeroContainer(0, 0, 0, 0, 0, 0, 0, 0);
+        const view1 = new SpriteHeroContainer(1, 1, 1, 1, 1, 1, 1, 1);
         gnom.setView(view1);
-        gnom.setPosition(100, 500);
+        gnom.setPosition(300, 500);
+        gnom.play(animationHeroAttack);
+        
+        gnom.currentCountFrame = 3;
         gnom.draw();
         gnom.tick();
        
@@ -25,8 +29,11 @@ resources.onReady(
         const view2 = new SpriteEnemyContainer(0, 0, 0, 0, 1, 1, 1);
         
         gnom2.setView(view2);
-        gnom2.setPosition(600, 500);
+        gnom2.setPosition(700, 500);
+        gnom2.play(animationEnemyAttack);
+        gnom2.currentCountFrame = 3;
         gnom2.draw();
+        
         gnom2.tick();
     }
 );

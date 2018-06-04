@@ -1,5 +1,6 @@
 import {Hero} from './Hero';
 import {animationEnemyWalk} from '../animations';
+import {animationEnemyAttack} from '../animations';
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
 
 class Enemy extends Hero {

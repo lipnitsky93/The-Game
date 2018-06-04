@@ -1,4 +1,5 @@
 import {animationHeroWalk} from '../animations';
+import {animationHeroAttack} from '../animations';
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
 
 
@@ -27,7 +28,7 @@ class Hero {
             this.currentCountFrame = 0;
         }
         const frame = this.animation.frames[this.currentCountFrame];
-       
+        
         frame.parts.forEach(
             (item, i) => {
                 const currView = this.view[item.name];
