@@ -2,14 +2,14 @@ import {armsLeftEnemySrc, weaponsLeftEnemySrc, legsLeftEnemySrc, bodiesEnemySrc,
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
 
 class SpriteEnemyContainer {
-    constructor(armLeftEnemy, weaponLeftEnemy, legLeftEnemy, legRightEnemy, bodyEnemy, headEnemy, armRightEnemy) {
-        this.armLeftEnemy = resources.get(armsLeftEnemySrc[armLeftEnemy]);
-        this.weaponLeftEnemy = resources.get(weaponsLeftEnemySrc[weaponLeftEnemy]);
-        this.legLeftEnemy = resources.get(legsLeftEnemySrc[legLeftEnemy]);
-        this.bodyEnemy = resources.get(bodiesEnemySrc[bodyEnemy]);
-        this.legRightEnemy = resources.get(legsRightEnemySrc[legRightEnemy]);
-        this.headEnemy = resources.get(headsEnemySrc[headEnemy]);
-        this.armRightEnemy = resources.get(armsRightEnemySrc[armRightEnemy]);
+    constructor() {
+        this.armLeftEnemy = resources.get(armsLeftEnemySrc[_.random(armsLeftEnemySrc.length - 1)]);
+        this.weaponLeftEnemy = resources.get(weaponsLeftEnemySrc[_.random(weaponsLeftEnemySrc.length - 1)]);
+        this.legLeftEnemy = resources.get(legsLeftEnemySrc[_.random(legsLeftEnemySrc.length - 1)]);
+        this.bodyEnemy = resources.get(bodiesEnemySrc[_.random(bodiesEnemySrc.length - 1)]);
+        this.legRightEnemy = resources.get(legsRightEnemySrc[_.random(legsRightEnemySrc.length - 1)]);
+        this.headEnemy = resources.get(headsEnemySrc[_.random(headsEnemySrc.length - 1)]);
+        this.armRightEnemy = resources.get(armsRightEnemySrc[_.random(armsRightEnemySrc.length - 1)]);
     }
 }
 

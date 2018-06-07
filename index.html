@@ -7,9 +7,22 @@
         <script src="js/lodash/lodash.js"></script>
     </head>
     <body>
+        <div class='start-area'>
+            <h1>WarDraft</h1>
+            <div class="menu">
+            <form class="registration" name="userData">
+                <label>First Name <br> <input type="text" name="firstName" autocomplete="new-password" autofocus></label>
+                <div class="message">Enter your name, please!</div>
+            </form>
+            <input class="butt-start" type="button" value="Start">
+            <input class="butt-about" type="button" value="About">
+            </div>
+        </div>
+        <div class='game-area'>
         <div class="wrapper">
         <canvas id="myCanvasHero" width="1600" height="800"></canvas>
         <canvas id="myCanvasEnemy" width="1600" height="800"></canvas>
+        </div>
         </div>
         <script src="dist/build.js"></script>	
     </body>

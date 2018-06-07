@@ -1,6 +1,65 @@
+@font-face {
+    font-family: "LifeCraft";
+    src: url("../fonts/LifeCraft_Font.ttf");
+}
+
 body {
     margin: 0;
-    background-color: yellowgreen;
+    background-color: #D8D8D8;
+}
+
+h1 {
+    font-family: "LifeCraft", Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-size: 100px;
+    text-align: center;
+    padding-top: 150px;
+    font-weight: normal;
+    user-select: none;
+}
+
+.start-area {
+    height: 950px;
+    background: #D8D8D8;
+}
+
+.menu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.message {
+    visibility: hidden;
+}
+
+input[class^="butt"] {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+    background-color: #ACACAC;
+    border: 1px solid #000000;
+    outline: 0;
+    cursor: pointer;
+    font-size: 28px;
+    margin-top: 40px;
+}
+
+input[type="text"] {
+    width: 250px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    font-size: 28px;
+    color: #222222;
+    background: rgba(187, 187, 187, 0.4);
+    user-select: none;
+}
+
+.game-area {
+    display: none;
 }
 
 .wrapper {
@@ -21,6 +80,13 @@ canvas {
     left: 0;
     top: 0;
     background: transparent;
-    border: 1px solid black;
+}
+
+#myCanvasHero {
+    z-index: 1;
+}
+
+#myCanvasEnemy {
+    z-index: 0;
 }
 

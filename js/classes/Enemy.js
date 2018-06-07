@@ -2,11 +2,14 @@ import {Hero} from './Hero';
 import {animationEnemyWalk} from '../animations';
 import {animationEnemyAttack} from '../animations';
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
+import {enemyNameAdv, enemyNameRace, enemyName} from '../constants';
+import {SpriteEnemyContainer} from '../classes/SpriteEnemyContainer';
 
 class Enemy extends Hero {
     constructor() {
         super();
         this.context = ctx2;
+        this.name;
         this.animation = animationEnemyWalk;
     }
     
@@ -36,7 +39,61 @@ class Enemy extends Hero {
         )
         this.currentCountFrame ++;  
     }
+
+    setView() {
+        this.view = new SpriteEnemyContainer();
+    }
+
+    setName() {
+        const selfNameAdv = enemyNameAdv[_.random(enemyNameAdv.length - 1)];
+        const selfNameRace = enemyNameRace[_.random(enemyNameRace.length - 1)];
+        const selfName = enemyName[_.random(enemyName.length - 1)];
+        this.name = `${selfNameAdv} ${selfNameRace} ${selfName}`;
+    }
+
+    walk(n, start, end) {
+        if (this.tick_count > n) {
+            this.setPosition(start, 500);
+            this.draw();
+            if (start > end) {
+            start -= 15;
+            } 
+            this.tick_count = 0;
+            if (start > end) {
+                var reqId = requestAnimationFrame(this.walk.bind(this, n, start, end));
+            } else {
+            cancelAnimationFrame(reqId);
+            this.currentCountFrame = 0;
+            this.draw();
+            }
+            console.log(reqId);
+        } else {
+            this.tick_count += 1;
+            requestAnimationFrame(this.walk.bind(this, n, start, end));
+        }
+    }
 }
+
+function animate(draw, duration) {
+    var start = performance.now();
+  
+    requestAnimationFrame(function animate(time) {
+      // определить, сколько прошло времени с начала анимации
+      var timePassed = time - start;
+  
+      // возможно небольшое превышение времени, в этом случае зафиксировать конец
+      if (timePassed > duration) timePassed = duration;
+  
+      // нарисовать состояние анимации в момент timePassed
+      draw(timePassed);
+  
+      // если время анимации не закончилось - запланировать ещё кадр
+      if (timePassed < duration) {
+        requestAnimationFrame(animate);
+      }
+  
+    });
+  }
 
 export {Enemy};
 

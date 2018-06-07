@@ -7,6 +7,7 @@ class Hero {
     constructor(name) {
         this.name = name;
         this.view;
+        this.health = 100;
         this.currentCountFrame = 0;
         this.animation = animationHeroWalk;
         this.context = ctx;
@@ -47,16 +48,28 @@ class Hero {
         this.currentCountFrame ++;  
     }
 
-    tick() {
-        if (this.tick_count > 15) {
+    walk(n, start, end) {
+        if (this.tick_count > n) {
+            this.setPosition(start, 500);
             this.draw();
+            if (start < end) {
+            start += 30;
+            } 
             this.tick_count = 0;
-            requestAnimationFrame(this.tick.bind(this));
+            if (start < end) {
+                var reqId = requestAnimationFrame(this.walk.bind(this, n, start, end));
+            } else {
+            cancelAnimationFrame(reqId);
+            this.currentCountFrame = 0;
+            this.draw();
+            }
+            console.log(reqId);
         } else {
             this.tick_count += 1;
-            requestAnimationFrame(this.tick.bind(this));
+            requestAnimationFrame(this.walk.bind(this, n, start, end));
         }
     }
+
 
     setPosition(x, y) {
         this.x = x;
