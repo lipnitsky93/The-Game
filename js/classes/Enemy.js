@@ -40,6 +40,17 @@ class Enemy extends Hero {
         this.currentCountFrame ++;  
     }
 
+    drawInfo() {
+        this.context.clearRect(1300, 0, 250, 300);
+        this.context.fillStyle = "#000";
+        this.context.font = "italic 36px Arial";
+        this.context.fillText(this.name, 1300, 50, 250);
+        this.context.fillStyle = "red";
+        this.context.font = "52px Arial";
+        this.context.fillText(this.health, 1375, 130, 250);
+        requestAnimationFrame(this.drawInfo.bind(this));   
+    }
+
     setView() {
         this.view = new SpriteEnemyContainer();
     }
@@ -66,7 +77,6 @@ class Enemy extends Hero {
             this.currentCountFrame = 0;
             this.draw();
             }
-            console.log(reqId);
         } else {
             this.tick_count += 1;
             requestAnimationFrame(this.walk.bind(this, n, start, end));
@@ -74,26 +84,6 @@ class Enemy extends Hero {
     }
 }
 
-function animate(draw, duration) {
-    var start = performance.now();
-  
-    requestAnimationFrame(function animate(time) {
-      // определить, сколько прошло времени с начала анимации
-      var timePassed = time - start;
-  
-      // возможно небольшое превышение времени, в этом случае зафиксировать конец
-      if (timePassed > duration) timePassed = duration;
-  
-      // нарисовать состояние анимации в момент timePassed
-      draw(timePassed);
-  
-      // если время анимации не закончилось - запланировать ещё кадр
-      if (timePassed < duration) {
-        requestAnimationFrame(animate);
-      }
-  
-    });
-  }
 
 export {Enemy};
 

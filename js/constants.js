@@ -18,12 +18,12 @@ const armsLeftEnemySrc = ['testimages/enemy/armleft/orc_arm_left_1.png', 'testim
 const armsRightEnemySrc = ['testimages/enemy/armright/orc_arm_right_1.png', 'testimages/enemy/armright/orc_arm_right_2.png', 'testimages/enemy/armright/orc_arm_right_3.png'];
 const legsLeftEnemySrc = ['testimages/enemy/legleft/orc_leg_left_1.png', 'testimages/enemy/legleft/orc_leg_left_2.png', 'testimages/enemy/legleft/orc_leg_left_3.png'];
 const legsRightEnemySrc = ['testimages/enemy/legright/orc_leg_right_1.png', 'testimages/enemy/legright/orc_leg_right_2.png', 'testimages/enemy/legright/orc_leg_right_3.png'];
-const weaponsLeftEnemySrc = ['testimages/enemy/weaponleft/orc_weapon_left_1.png', 'testimages/enemy/weaponleft/orc_weapon_left_2.png', 'testimages/enemy/weaponleft/orc_weapon_left_3.png'];
+const weaponsLeftEnemySrc = ['testimages/enemy/weaponleft/orc_weapon_left_1.png', 'testimages/enemy/weaponleft/orc_weapon_left_2.png', 'testimages/enemy/weaponleft/orc_weapon_left_3.png', 'testimages/enemy/weaponleft/troll_weapon_left_1.png', 'testimages/enemy/weaponleft/troll_weapon_left_2.png', 'testimages/enemy/weaponleft/troll_weapon_left_3.png'];
 
 
 const enemyNameAdv = ['terrible', 'angry', 'appaling', 'snotty', 'stupid', 'cowardly'];
 const enemyNameRace = ['orc', 'ogr', 'monster', 'goblin', 'gremlin', 'golem'];
-const enemyName = ['Jacob', 'Daniel', 'Christopher', 'Ryan', 'Justin', 'Luke'];
+const enemyName = ['Jacob', 'Daniel', 'Christopher', 'Ryan', 'Justin', 'Luke', 'Kevin', 'Jack', 'Connor', 'Charles', 'Diego', 'Sebastian', 'Jeremy'];
 
 
 export {canvas, ctx, canvas2, ctx2, TO_RADIANS};

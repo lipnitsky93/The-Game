@@ -48,6 +48,17 @@ class Hero {
         this.currentCountFrame ++;  
     }
 
+    drawInfo() {
+        this.context.clearRect(0, 0, 300, 300);
+        this.context.fillStyle = "#000";
+        this.context.font = "italic 36px Arial";
+        this.context.fillText(this.name, 20, 50);
+        this.context.fillStyle = "red";
+        this.context.font = "52px Arial";
+        this.context.fillText(this.health, 100, 130);
+        requestAnimationFrame(this.drawInfo.bind(this));
+    }
+
     walk(n, start, end) {
         if (this.tick_count > n) {
             this.setPosition(start, 500);
@@ -63,7 +74,6 @@ class Hero {
             this.currentCountFrame = 0;
             this.draw();
             }
-            console.log(reqId);
         } else {
             this.tick_count += 1;
             requestAnimationFrame(this.walk.bind(this, n, start, end));

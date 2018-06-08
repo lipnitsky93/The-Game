@@ -60,15 +60,36 @@ input[type="text"] {
 
 .game-area {
     display: none;
+    margin: auto;
+    width: 1600px;
 }
 
-.wrapper {
+.canvas-wrapper {
     background-image: url('../testimages/BACKGROUND3.jpg');
     background-size: cover;
     margin: auto;
     width: 1600px;
     height: 800px;
     position: relative;
+}
+
+.game-control {
+    height: 150px;
+    background-color: #42261b;
+    box-sizing: border-box;
+    border: 5px solid #1a1d22;
+}
+
+.game-control input {
+    width: 200px;
+    height: 40px;
+    background-color: #707980;
+    border: 1px solid #000000;
+    outline: 0;
+    cursor: pointer;
+    font-size: 28px;
+    margin: 45px 0 0 30px;
+    opacity: 1;
 }
 
 canvas {

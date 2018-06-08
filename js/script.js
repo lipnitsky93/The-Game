@@ -5,6 +5,7 @@ import {animationEnemyAttack} from './animations';
 import {Hero} from './classes/Hero';
 import {User} from './classes/User';
 import {Enemy} from './classes/Enemy';
+import {MathematicTask} from './classes/MathematicTask';
 import {SpriteHeroContainer} from './classes/SpriteHeroContainer';
 import {SpriteEnemyContainer} from './classes/SpriteEnemyContainer';
 import {res} from './resources';
@@ -24,65 +25,49 @@ resources.onReady(
         
         console.log(formOfFirstName.value);
 
-        function introAnimation() {
-            const hero = new Hero(user.firstName);
-        }
+        
        
 
         function startGame() {
-            const firstName = formOfFirstName.value || null;
+            const firstName = formOfFirstName.value || 'anonymous';
             const user = new User();
             user.setFirstName(firstName);
             const hero = new Hero(user.firstName);
             const enemy = new Enemy();
             enemy.setName();
             enemy.setView();
-            //enemy.setPosition(800, 500);
-            enemy.walk(10, 1500, 730);
 
+            /************************************************** Initial animation **********************************************************/
+            enemy.walk(12, 1500, 730);
+            enemy.drawInfo();
 
             hero.setView(new SpriteHeroContainer(2, 2, 2, 2, 2, 2, 2, 2));
-            hero.walk(10, -300, 470);
-            
-            console.log(enemy);
+            hero.walk(12, -300, 470);
+            hero.drawInfo();
             startArea.style.display = 'none';
             gameArea.style.display = 'block';
-            
-            
-            
-            
-            console.log(user);
         }
 
         buttonStart.addEventListener('click', startGame);
 
+        /*********************************************************** Task ******************************************************************/
+
+        function setButtonVisibility() {
+            const arrOfButtons = document.body.querySelectorAll('.game-control input');
+            _.forEach(arrOfButtons, 
+                (item, i) => {
+                    arrOfButtons[i].style.opacity = '1';
+                });
+        }
+
+        const task1 = new MathematicTask();
+        console.log(task1);
 
 
 
 
 
-        /*
-        const gnom = new Hero('Fred');
-        const view1 = new SpriteHeroContainer(0, 0, 0, 0, 0, 0, 0, 0);
-        gnom.setView(view1);
-        gnom.setPosition(430, 500);
-        gnom.play(animationHeroAttack);
         
-        gnom.currentCountFrame = 3;
-        gnom.draw();
-        gnom.tick();
-       
-        const gnom2 = new Enemy('Jimmy');
-        const view2 = new SpriteEnemyContainer(2, 2, 2, 2, 2, 2, 2);
-        
-        gnom2.setView(view2);
-        gnom2.setPosition(700, 500);
-        gnom2.play(animationEnemyAttack);
-        gnom2.currentCountFrame = 0;
-        gnom2.draw();
-        
-        //gnom2.tick();
-        */
     }
 );
 
