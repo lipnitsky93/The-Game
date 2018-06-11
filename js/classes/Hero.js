@@ -1,7 +1,7 @@
 import {animationHeroWalk} from '../animations';
 import {animationHeroAttack} from '../animations';
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
-
+import {showButtons} from '../script';
 
 class Hero {
     constructor(name) {
@@ -78,6 +78,33 @@ class Hero {
             this.tick_count += 1;
             requestAnimationFrame(this.walk.bind(this, n, start, end));
         }
+    }
+    
+    attack() {
+        this.animation = animationHeroAttack;
+        const canvasEnemy = document.getElementById('myCanvasEnemy');
+        const canvasHero = document.getElementById('myCanvasHero');
+        canvasEnemy.style.zIndex = 0;
+        canvasHero.style.zIndex = 2;
+        if (this.tick_count > 12) {
+        this.draw();
+        this.tick_count = 0;
+        if (this.currentCountFrame < this.animation.frames.length) {
+        var reqId = requestAnimationFrame(this.attack.bind(this));
+        } else {
+            cancelAnimationFrame(reqId);
+        }
+        } else {
+            this.tick_count += 1;
+            requestAnimationFrame(this.attack.bind(this));
+        }
+    }
+
+    loseHealth() {
+        const buttonCheck = document.body.querySelector('.mathematic input.butt-check');
+        this.health -= _.random(2, 9);
+        showButtons();
+        buttonCheck.style.display = 'block';
     }
 
 

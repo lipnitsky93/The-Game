@@ -4,6 +4,7 @@ import {animationEnemyAttack} from '../animations';
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
 import {enemyNameAdv, enemyNameRace, enemyName} from '../constants';
 import {SpriteEnemyContainer} from '../classes/SpriteEnemyContainer';
+import {showButtons} from '../script';
 
 class Enemy extends Hero {
     constructor() {
@@ -11,6 +12,7 @@ class Enemy extends Hero {
         this.context = ctx2;
         this.name;
         this.animation = animationEnemyWalk;
+        this.countOfKilledMonsters = 0;
     }
     
     draw() {
@@ -63,11 +65,13 @@ class Enemy extends Hero {
     }
 
     walk(n, start, end) {
+
+        
         if (this.tick_count > n) {
             this.setPosition(start, 500);
             this.draw();
             if (start > end) {
-            start -= 15;
+            start -= 30;
             } 
             this.tick_count = 0;
             if (start > end) {
@@ -76,12 +80,53 @@ class Enemy extends Hero {
             cancelAnimationFrame(reqId);
             this.currentCountFrame = 0;
             this.draw();
+            showButtons();
+
             }
         } else {
             this.tick_count += 1;
             requestAnimationFrame(this.walk.bind(this, n, start, end));
         }
     }
+
+    loseHealth() {
+        this.health -= _.random(64, 82);
+        if (this.health < 0) {
+            console.log('I am die!!!');
+            
+            
+            this.setName();
+            this.setView();
+            this.health = 100;
+            this.countOfKilledMonsters += 1;
+            console.log(this.countOfKilledMonsters);
+        }
+
+    }
+
+    attack() {
+        this.animation = animationEnemyAttack;
+        const canvasEnemy = document.getElementById('myCanvasEnemy');
+        const canvasHero = document.getElementById('myCanvasHero');
+        canvasEnemy.style.zIndex = 1;
+        canvasHero.style.zIndex = 0;
+        if (this.tick_count > 12) {
+        this.draw();
+        this.tick_count = 0;
+        if (this.currentCountFrame < this.animation.frames.length) {
+        var reqId = requestAnimationFrame(this.attack.bind(this));
+        } else {
+            cancelAnimationFrame(reqId);
+        }
+        } else {
+            this.tick_count += 1;
+            requestAnimationFrame(this.attack.bind(this));
+        }
+    }
+
+
+
+
 }
 
 
