@@ -45,6 +45,8 @@ resources.onReady(
         
         console.log(formOfFirstName.value);
 
+       
+
         
        
 
@@ -99,10 +101,31 @@ resources.onReady(
             inputAnswer.value = '';
             answerMessage.innerHTML = '';
         }
+
+        function checkEnemyHealth() {
+            if (enemy.health > 0) {
+                setTimeout(enemy.attack.bind(enemy), 200);
+                setTimeout(enemy.drawInfo.bind(enemy), 200);
+                setTimeout(hero.loseHealth.bind(hero), 1400);
+            } else {
+                enemy.setName();
+                enemy.setView();
+                enemy.health = 100;
+                //enemy.animation = animationEnemyWalk;
+                enemy.currentCountFrame = 0;
+                enemy.animation = animationEnemyWalk;
+                enemy.walk(12, 1500, 700);
+                enemy.drawInfo();
+                showButtons();
+                buttonCheck.style.display = 'block';
+            }
+        }
+
+      
  
         function checkValue() { 
+            console.log(enemy.health);
             const inputAnswer = document.body.querySelector('.mathematic input');
-            console.log(task1);
             console.log(task1.result);
             buttonCheck.style.display = 'none';
             if (+inputAnswer.value === task1.result) {
@@ -112,10 +135,14 @@ resources.onReady(
                 setTimeout(hero.attack.bind(hero), 1700);
                 setTimeout(hero.drawInfo.bind(hero), 1700);
                 setTimeout(enemy.loseHealth.bind(enemy), 3300);
-                
+                setTimeout(checkEnemyHealth, 3500);
+                /*
+                if (setTimeout(checkEnemyHealth, 3500)) {
                 setTimeout(enemy.attack.bind(enemy), 3700);
                 setTimeout(enemy.drawInfo.bind(enemy), 3700);
                 setTimeout(hero.loseHealth.bind(hero), 5300);
+                } 
+                */
                 
                 
             } else {
@@ -130,22 +157,12 @@ resources.onReady(
             
         }
         buttonCheck.addEventListener('click', checkValue);
-    
         const buttonAttack = document.body.querySelector('.attack');   
         buttonAttack.addEventListener('click', startMathematicTask);
+       
 
 
-        function outputNewMonster() {
-            hideButtons();
-            const enemy= new Enemy();
-            enemy.health = 100;
-            enemy.setName();
-            enemy.setView();
-
-            
-            enemy.walk(12, 1500, 700);
-            enemy.drawInfo();
-        }
+        
 
 
 

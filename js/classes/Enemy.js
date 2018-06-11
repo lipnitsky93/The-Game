@@ -21,7 +21,7 @@ class Enemy extends Hero {
             this.currentCountFrame = 0;
         }
         const frame = this.animation.frames[this.currentCountFrame];
-       
+       console.log(this.animation);
         frame.parts.forEach(
             (item, i) => {
                 const currView = this.view[item.name];
@@ -95,11 +95,11 @@ class Enemy extends Hero {
             console.log('I am die!!!');
             
             
-            this.setName();
-            this.setView();
-            this.health = 100;
+            //this.setName();
+            //this.setView();
+            //this.health = 100;
             this.countOfKilledMonsters += 1;
-            console.log(this.countOfKilledMonsters);
+            //console.log(this.countOfKilledMonsters);
         }
 
     }
