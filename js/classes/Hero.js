@@ -1,7 +1,8 @@
 import {animationHeroWalk} from '../animations';
 import {animationHeroAttack} from '../animations';
 import {canvas, ctx, canvas2, ctx2, TO_RADIANS} from '../constants';
-import {showButtons} from '../script';
+import {showButtons} from '../constants';
+
 
 class Hero {
     constructor(name) {
@@ -102,9 +103,12 @@ class Hero {
 
     loseHealth() {
         const buttonCheck = document.body.querySelector('.mathematic input.butt-check');
-        this.health -= _.random(2, 9);
+        this.health -= _.random(40, 60);
         showButtons();
         buttonCheck.style.display = 'block';
+        if (this.health < 0) {
+            this.health = 0;
+        }
     }
 
 

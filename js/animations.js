@@ -247,3 +247,66 @@ animationEnemyAttack.frames.push(frameEnemyAttack4);
 animationEnemyAttack.frames.push(frameEnemyAttack5);
 
 export {animationEnemyAttack};
+
+
+// ****************************************** Create Enemy die animation ************************************************************
+
+const frameEnemyDie1 = new Frame();
+
+frameEnemyDie1.parts.push(new Part('armLeftEnemy', 110, 55, -40));
+frameEnemyDie1.parts.push(new Part('weaponLeftEnemy', 20, 40, -40));
+frameEnemyDie1.parts.push(new Part('legLeftEnemy', 150, 175, -40));
+frameEnemyDie1.parts.push(new Part('legRightEnemy', 193, 187, 0));
+frameEnemyDie1.parts.push(new Part('bodyEnemy', 155, 62, -20));
+frameEnemyDie1.parts.push(new Part('headEnemy', 155, -5, -30));
+frameEnemyDie1.parts.push(new Part('armRightEnemy', 220, 95, -40));
+
+const frameEnemyDie2 = new Frame();
+
+frameEnemyDie2.parts.push(new Part('armLeftEnemy', 140, 75, -50));
+frameEnemyDie2.parts.push(new Part('weaponLeftEnemy', 53, 52, -50));
+frameEnemyDie2.parts.push(new Part('legLeftEnemy', 180, 185, -90));
+frameEnemyDie2.parts.push(new Part('legRightEnemy', 193, 195, -80));
+frameEnemyDie2.parts.push(new Part('bodyEnemy', 175, 82, -20));
+frameEnemyDie2.parts.push(new Part('headEnemy', 180, 15, -30));
+frameEnemyDie2.parts.push(new Part('armRightEnemy', 220, 110, -60));
+
+const frameEnemyDie3 = new Frame();
+
+frameEnemyDie3.parts.push(new Part('armLeftEnemy', 140, 75, -50));
+frameEnemyDie3.parts.push(new Part('weaponLeftEnemy', 53, 52, -50));
+frameEnemyDie3.parts.push(new Part('legLeftEnemy', 180, 185, -90));
+frameEnemyDie3.parts.push(new Part('legRightEnemy', 193, 195, -80));
+frameEnemyDie3.parts.push(new Part('bodyEnemy', 175, 82, -20));
+frameEnemyDie3.parts.push(new Part('headEnemy', 185, 15, -45));
+frameEnemyDie3.parts.push(new Part('armRightEnemy', 220, 110, -60));
+
+const frameEnemyDie4 = new Frame();
+
+frameEnemyDie4.parts.push(new Part('armLeftEnemy', 210, 45, -140));
+frameEnemyDie4.parts.push(new Part('weaponLeftEnemy', 200, 8, -140));
+frameEnemyDie4.parts.push(new Part('legLeftEnemy', 180, 185, -90));
+frameEnemyDie4.parts.push(new Part('legRightEnemy', 193, 195, -80));
+frameEnemyDie4.parts.push(new Part('bodyEnemy', 205, 117, -65));
+frameEnemyDie4.parts.push(new Part('headEnemy', 275, 90, -75));
+frameEnemyDie4.parts.push(new Part('armRightEnemy', 245, 125, -150));
+
+const frameEnemyDie5 = new Frame();
+
+frameEnemyDie5.parts.push(new Part('armLeftEnemy', 195, 95, -50));
+frameEnemyDie5.parts.push(new Part('weaponLeftEnemy', 60, 115, 20));
+frameEnemyDie5.parts.push(new Part('legLeftEnemy', 180, 185, -90));
+frameEnemyDie5.parts.push(new Part('legRightEnemy', 193, 195, -80));
+frameEnemyDie5.parts.push(new Part('bodyEnemy', 205, 117, -65));
+frameEnemyDie5.parts.push(new Part('headEnemy', 275, 90, -75));
+frameEnemyDie5.parts.push(new Part('armRightEnemy', 235, 170, -80));
+
+const animationEnemyDie = new AnimationInfo('die');
+
+animationEnemyDie.frames.push(frameEnemyDie1);
+animationEnemyDie.frames.push(frameEnemyDie2);
+animationEnemyDie.frames.push(frameEnemyDie3);
+animationEnemyDie.frames.push(frameEnemyDie4);
+animationEnemyDie.frames.push(frameEnemyDie5);
+
+export {animationEnemyDie};

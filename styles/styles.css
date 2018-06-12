@@ -64,6 +64,7 @@ input[type="text"] {
     width: 1600px;
 }
 
+
 .canvas-wrapper {
     background-image: url('../testimages/BACKGROUND3.jpg');
     background-size: cover;
@@ -147,5 +148,56 @@ canvas {
 
 #myCanvasEnemy {
     z-index: 0;
+}
+
+div.victory-area {
+    background-color: #D8D8D8;
+    height: 950px;
+   
+    font-size: 18px;
+    user-select: none;
+}
+
+div.victory-area h2 {
+ text-align: center;
+ padding-top: 30px;
+ font-size: 40px;
+}
+
+.result-table table {
+    margin: 70px auto;
+}
+
+.result-table td {
+    height: 40px;
+    width: 300px;
+    border: 1px solid black;
+}
+
+.result-table td:first-child {
+    width: 80px;
+    text-align: center;
+}
+
+.result-table th:first-child {
+    width: 80px;
+    text-align: center;
+}
+
+.result-table th {
+    height: 40px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+caption {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
